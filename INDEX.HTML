@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LinkedIn Job Alerts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #d0e3ff 0%, #f0f4f8 100%);
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 400px;
+      height: 400px;
+      background: #0a66c2;
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: #00b4d8;
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .container {
+      background: #ffffffdd;
+      border-radius: 20px;
+      padding: 35px 40px;
+      max-width: 550px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(8px);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #2C3E50;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #2C3E50;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #CBD5E0;
+      border-radius: 10px;
+      font-size: 1rem;
+      background-color: #f9fafb;
+      transition: 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #0A66C2;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background-color: #0A66C2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #004182;
+      box-shadow: 0 6px 20px rgba(10, 102, 194, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .loading, .success-message, .error-message {
+      display: none;
+      font-weight: 600;
+      margin-top: 15px;
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .loading {
+      color: #0A66C2;
+    }
+
+    .success-message {
+      background: #D1FAE5;
+      color: #065F46;
+    }
+
+    .error-message {
+      background: #FECACA;
+      color: #B91C1C;
+    }
+
+    .features {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .feature-icon {
+      font-size: 1.3rem;
+      margin-right: 10px;
+      color: #0A66C2;
+    }
+
+    .feature-text {
+      color: #444;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 20px;
+      }
+      .header h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="hero-img" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo">
+    <div class="header">
+      <h1>🚀 LinkedIn Job Alerts</h1>
+      <p>Subscribe to get real-time job updates via WhatsApp & Email, directly from LinkedIn-style listings.</p>
+    </div>
+
+    <form id="jobAlertForm" action="https://daneish190.app.n8n.cloud/webhook-test/0fd85101-830d-46d3-ae27-c14d8b7f6b21" method="POST">
+      <div class="form-group">
+        <label for="name">👤 Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">📧 Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address" />
+      </div>
+
+      <div class="form-group">
+        <label for="number">📱 WhatsApp Number</label>
+        <input type="tel" id="number" name="number" required placeholder="+91XXXXXXXXXX" pattern="[+]?[0-9]{10,15}" />
+      </div>
+
+      <button type="submit" class="submit-btn">🔔 Subscribe Now</button>
+
+      <div class="loading">⏳ Submitting...</div>
+      <div class="success-message">✅ You’re subscribed successfully!</div>
+      <div class="error-message">❌ Something went wrong.</div>
+    </form>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">⚡</span>
+        <span class="feature-text">Instant alerts for trending jobs</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🧠</span>
+        <span class="feature-text">Smart recommendations from LinkedIn</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">💬</span>
+        <span class="feature-text">Delivered via WhatsApp & Email</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🔒</span>
+        <span class="feature-text">100% secure and spam-free</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('jobAlertForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const form = this;
+      const submitBtn = form.querySelector('.submit-btn');
+      const loading = form.querySelector('.loading');
+      const successMsg = form.querySelector('.success-message');
+      const errorMsg = form.querySelector('.error-message');
+
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+      submitBtn.style.display = 'none';
+      loading.style.display = 'block';
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        errorMsg.style.display = 'block';
+        errorMsg.textContent = '❌ ' + (error.message || 'Something went wrong. Please try again.');
+      } finally {
+        loading.style.display = 'none';
+        submitBtn.style.display = 'block';
+      }
+    });
+
+    document.getElementById('number').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 0 && !value.startsWith('+')) {
+        if (value.startsWith('91')) {
+          value = '+' + value;
+        } else if (value.length === 10) {
+          value = '+91' + value;
+        }
+      }
+      e.target.value = value;
+    });
+  </script>
+</body>
+</html>
