@@ -1,0 +1,617 @@
+{
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0fd85101-830d-46d3-ae27-c14d8b7f6b21",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1296,
+        -480
+      ],
+      "id": "1b85c248-8ed4-4904-963a-80af91ad5e9c",
+      "name": "Webhook",
+      "webhookId": "0fd85101-830d-46d3-ae27-c14d8b7f6b21"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo",
+          "mode": "list",
+          "cachedResultName": "final job alerts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name ": "={{ $json.body.name }}",
+            "Phone number]": "={{ $json.body.number }}",
+            "email": "={{ $json.body.email }}"
+          },
+          "matchingColumns": [
+            "Name "
+          ],
+          "schema": [
+            {
+              "id": "Name ",
+              "displayName": "Name ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone number]",
+              "displayName": "Phone number]",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -1008,
+        -384
+      ],
+      "id": "01178157-7bae-492a-b8e2-00e615b95701",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "wsIy7FiiQqATYU9C",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/iFheobWp8Z9vbmFp9/items?token=apify_api_ZrgeaKe4UDjLfZJ9kiQig9I1wHnAJ119iRsx",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -240,
+        -464
+      ],
+      "id": "ef0981c7-e367-47fd-90f6-0da3155c2415",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "5Mc9owmtvOncNm0B",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo",
+          "mode": "list",
+          "cachedResultName": "final job alerts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1271240765,
+          "mode": "list",
+          "cachedResultName": "JOBS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo/edit#gid=1271240765"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "job title": "={{ $json.job_title }}",
+            "Company Name": "={{ $json.company_name }}",
+            "Company linkdin profile": "={{ $json.company_linkedin_profile }}",
+            "job post url": "={{ $json.job_post_url }}",
+            "job post date ": "={{ $json.job_post_date }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job title",
+              "displayName": "job title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company linkdin profile",
+              "displayName": "Company linkdin profile",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LOCATION",
+              "displayName": "LOCATION",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "job post url",
+              "displayName": "job post url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "job post date ",
+              "displayName": "job post date ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        192,
+        -464
+      ],
+      "id": "fb6cf453-9817-4871-ab99-f43736e47c5a",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "wsIy7FiiQqATYU9C",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const jobs = $items();\nlet text = \"Summarize the following job listings in 3–5 bullet points:\\n\\n\";\n\nfor (const job of jobs) {\n  const j = job.json;\n  text += `• ${j[\"job title\"] || \"No Title\"} at ${j[\"Company Name\"] || \"Unknown Company\"} (${j[\"Company linkdin profile\"] || \"No LinkedIn\"})\\n`;\n  text += `  📍 Location: ${j[\"LOCATION\"] || \"N/A\"}\\n`;\n  text += `  📅 Posted on: ${j[\"job post date\"] || \"N/A\"}\\n`;\n  text += `  🔗 Apply here: ${j[\"job post url\"] || \"No URL\"}\\n\\n`;\n}\n\nreturn [{ json: { jobText: text } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        -464
+      ],
+      "id": "02cfed15-85c0-49e9-a742-0da9a172e37d",
+      "name": "formating it"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "gpt-3.5-turbo"
+            },
+            {
+              "name": "messages",
+              "value": "={{ [\n{ \"role\": \"system\", \"content\": \"You are a professional assistant that summarizes job listings into clear, concise bullet points suitable for a corporate email. Format the output in Markdown. Each job should be:\\n• Job Title at Company\\n  - 📍 Location\\n  - 📅 Posted On (if available)\\n  - 🔗 [Apply here](link)\\n\\nMake sure links are clickable using markdown add some space so that it comes after one by one make it more go00d like proffesional mail\" },\n{ \"role\": \"user\", \"content\": $json[\"jobText\"] }\n] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1376,
+        16
+      ],
+      "id": "840a0907-11b8-4a8b-b164-2ca04b9bb455",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const jobs = $items(\"HTTP Request\"); // <- use your actual node name here\n// 👈 Ensure this matches your node name exactly!\nlet jobText = \"Summarize the following job listings in 3–5 bullet points each:\\n\\n\";\n\njobs.forEach((job, index) => {\n  const j = job.json;\n\n  jobText += `• ${j.job_title || \"N/A\"} at ${j.company_name || \"N/A\"}`;\n  \n  if (j.company_linkedin_profile) {\n    jobText += ` (${j.company_linkedin_profile})`;\n  }\n  \n  jobText += `\\n 📍 Location: ${j.job_location || \"N/A\"}`;\n  jobText += `\\n 📅 Posted on: ${j.job_post_date || \"N/A\"}`;\n  jobText += `\\n 🔗 Apply here: ${j.job_post_url || \"N/A\"}\\n\\n`;\n});\n\nreturn [\n  {\n    json: {\n      jobText\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -560,
+        0
+      ],
+      "id": "3ae7f282-1112-47b5-b0b6-b86e20b49fd3",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1cb877c8-df4b-47b3-a219-b1d9a028dcfc",
+              "name": "summary",
+              "value": "=`\n<div style=\"font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; padding: 20px; color: #333;\">\n  <div style=\"max-width: 600px; margin: auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);\">\n    <h2 style=\"color: #0073e6;\">💼 Job Alert: Software Engineering Roles</h2>\n    <p>Hi there,</p>\n    <p>Here’s your personalized list of exciting job opportunities:</p>\n\n    <div style=\"margin-top: 20px; font-size: 15px;\">\n      {{ $json.choices[0].message.content }}\n        .replace(/\\\\n/g, '<br>')\n    </div>\n\n    <p style=\"margin-top: 30px;\">🚀 Wishing you success in your job search!</p>\n    \n  </div>\n</div>\n`\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1056,
+        16
+      ],
+      "id": "f64a013d-88f3-48f4-8be4-24c125201af2",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Your Daily Job Summary",
+        "message": "={{ $('Edit Fields').item.json.summary }}\n<p style=\"margin-top: 5px;\">Best regards,<br>JOB ALERT</strong></p>\n    \n    <hr style=\"margin: 30px 0; border: none; border-top: 1px solid #ddd;\">\n    <small style=\"color: #888;\">This email was sent automatically via  <strong>Job Alert Bot</strong> |\n      <a href=\"#\" style=\"color: #888;\">Unsubscribe</a>\n    </small>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        0
+      ],
+      "id": "e382b27f-743b-42ae-a417-418ba025062a",
+      "name": "Send a message",
+      "webhookId": "6f38cbbf-3c42-4f79-9fd5-b9cf0740ac97",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "BxnSmPAzvSLo7FpI",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Welcome to LinkedIn Job Alerts – Your Gateway to Daily Opportunities",
+        "message": "=<div style=\"font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;\">\n  \n  <!-- Banner / Logo -->\n  <div style=\"background-color: #0073b1; text-align: center; padding: 20px;\">\n    <img src=\"https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png\" alt=\"LinkedIn Job Alerts\" style=\"height: 60px;\" />\n    <h2 style=\"color: #ffffff; margin-top: 10px;\">Welcome to LinkedIn Job Alerts</h2>\n  </div>\n  \n  <!-- Body -->\n  <div style=\"padding: 25px;\">\n    <p>Dear {{ $json.name }},</p>\n\n    <p>We're excited to welcome you to <a href=\"https://linkdin-job-alerts.netlify.app\" target=\"_blank\" style=\"color:#0073b1; text-decoration:none;\"><strong>LinkedIn Job Alerts</strong></a> – your personalized job alert platform.</p>\n\n    <p>You’ve successfully subscribed with the email <strong>{{ $json.email }}</strong>. From now on, you'll receive regular updates about new job opportunities that match your profile and preferences.</p>\n\n    <p>If you ever want to manage your alerts, feel free to visit our website anytime.</p>\n\n    <p>Thank you for trusting us in your job search journey.</p>\n\n    <p>Best regards,<br />\n    <strong>The LinkedIn Job Alerts Team</strong><br />\n    <a href=\"https://linkdin-job-alerts.netlify.app\" target=\"_blank\" style=\"color:#0073b1;\">linkdin-job-alerts.netlify.app</a></p>\n  </div>\n  \n</div>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -608,
+        -464
+      ],
+      "id": "db90615e-ebcc-45cd-92f7-f0cf9cad44b0",
+      "name": "Send a message1",
+      "webhookId": "1915df1f-030d-4f4e-b8dd-50ae6b71c635",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7phgEIN0B2cDof7R",
+          "name": "Gmail account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo",
+          "mode": "list",
+          "cachedResultName": "final job alerts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kPIWEExAGVJVksmFrp4NkHrflTgrkib2ChluuU6mkRo/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -128,
+        0
+      ],
+      "id": "8ea824e0-8222-48c7-9d44-daeafa7252c3",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "wsIy7FiiQqATYU9C",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "                            ##JOB-ALERT-SYSTEM \n",
+        "height": 128,
+        "width": 656,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -992,
+        -704
+      ],
+      "typeVersion": 1,
+      "id": "97070ced-1f19-4cf0-a7c0-a48da1ef9583",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "📌 JOB ALERT WORKFLOW OVERVIEW\n\n🟢 STEP 1: USER DATA COLLECTION\n🔹 Collect Name, Phone, Email from website form\n🔹 Save user data to Google Sheets\n🔹 Send confirmation email to user\n\n🟢 STEP 2: JOB SCRAPING\n🔹 Use Apify to scrape job listings (e.g., LinkedIn/Indeed)\n🔹 Filter and format scraped job data\n\n🟢 STEP 3: JOB SUMMARY WITH AI\n🔹 Send scraped jobs to OpenAI (GPT)\n🔹 Summarize jobs into user-friendly bullet points with links\n\n🟢 STEP 4: EMAIL NOTIFICATION\n🔹 Format summary into HTML with styling\n🔹 Personalize email content\n🔹 Send styled job alert email via Gmail to each user\n\n✅ AUTOMATED DAILY JOB ALERT SYSTEM COMPLETE!\n",
+        "height": 512,
+        "width": 352,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1760,
+        -656
+      ],
+      "typeVersion": 1,
+      "id": "a2044577-f7d0-4e95-a53f-623cdfc289c9",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 384,
+        "width": 1024
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1376,
+        -528
+      ],
+      "typeVersion": 1,
+      "id": "ef3ca0af-79d7-4d26-84d2-b637c9d4867a",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 400,
+        "width": 1056,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -336,
+        -592
+      ],
+      "typeVersion": 1,
+      "id": "8012c6ad-f1bd-4310-bb6b-f659c374f3c3",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "height": 384,
+        "width": 1136,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1472,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "ccc64656-01b8-4d41-bd48-ef26ccc44955",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "height": 368,
+        "width": 848,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        -128
+      ],
+      "typeVersion": 1,
+      "id": "d9698862-8f4d-4faf-800d-4030190727a8",
+      "name": "Sticky Note5"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "formating it",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formating it": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c611d0dd-2111-4a0c-9b55-e2217033efca",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8e049d7883d3414d127a72d571ee0178458a1137f7d36787eeef922f39e80232"
+  },
+  "id": "dZIzJ9HvheWuJOER",
+  "tags": []
+}
